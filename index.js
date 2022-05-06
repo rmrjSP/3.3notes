@@ -1,5 +1,7 @@
 const cardList = document.querySelector('.cardList');
-const score = document.getElementById('score')
+const score = document.getElementById('score');
+const image = document.querySelector('image');
+const restartButton = document.getElementById('restart')
 let points = 0;
 buildBoard();
 
@@ -46,7 +48,12 @@ cardList.addEventListener('click', function(e){
     let children = cardList.children;
     if (children.length < 1){
         clearInterval(interval);
-        score.innerHTML = `total score ${points}`
+        score.innerHTML = `total score ${points}`;
+        image(src="https://pngimg.com/uploads/confetti/confetti_PNG86993.png");
     }
+
+    restartButton.addEventListener('click', function(e){
+        location.reload();
+    })
 
 });
